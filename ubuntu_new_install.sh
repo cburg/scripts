@@ -9,7 +9,7 @@ wget -P ~/Downloads https://dl.google.com/linux/direct/google-chrome-stable_curr
 wget -P ~/Downloads http://repo.steampowered.com/steam/archive/precise/steam_latest.deb
 wget -P ~/Downloads http://c758482.r82.cf2.rackcdn.com/sublime-text_build-3065_amd64.deb
 wget -P ~/Downloads http://download.qt-project.org/official_releases/online_installers/qt-opensource-linux-x64-online.run
-wget -p ~/Downloads https://static.rust-lang.org/dist/rust-1.0.0-alpha-x86_64-unknown-linux-gnu.tar.gz
+wget -P ~/Downloads https://static.rust-lang.org/dist/rust-1.0.0-alpha-x86_64-unknown-linux-gnu.tar.gz
 
 # Need to update the keys and repository list. When first installing
 # libappindicator1 there was a warning saying the package couldn't be authenticated
@@ -23,9 +23,9 @@ sudo apt-get install -y libgconf2-4 libnss3-1d libxss1 libappindicator1 libindic
 sudo dpkg -i ~/Downloads/google-chrome-stable_current_amd64.deb
 sudo dpkg -i ~/Downloads/sublime-text_build-3065_amd64.deb
 
-chmod +x qt-opensource-linux-x64-online.run
-sudo ./qt-opensource-linux-x64-online.run & # Allow installation to be done in 
-                                            # background.
+chmod +x ~/Downloads/qt-opensource-linux-x64-online.run
+sudo ~/Downloads/qt-opensource-linux-x64-online.run & # Allow installation to be done in 
+                                                      # background.
                                             
 tar -xzvf ~/Downloads/rust-1.0.0-alpha-x86_64-unknown-linux-gnu.tar.gz -C ~/Downloads
 sudo ~/Downloads/rust-1.0.0-alpha-x86_64-unknown-linux-gnu/install.sh
@@ -44,7 +44,7 @@ wget -O - http://download.videolan.org/pub/debian/videolan-apt.asc | sudo apt-ke
 
 # Update to the latest
 sudo apt-get update
-sudo apt-get upgrad -y
+sudo apt-get upgrade -y
 
 # Development Stuff
 sudo apt-get install -y \
