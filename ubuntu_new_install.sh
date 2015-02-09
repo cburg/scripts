@@ -38,6 +38,7 @@ sudo add-apt-repository -y ppa:tuxpoldo/btsync
 sudo add-apt-repository -y ppa:chris-lea/node.js
 sudo add-apt-repository -y ppa:ubuntuhandbook1/birdfont
 sudo add-apt-repository -y 'deb http://ppa.launchpad.net/daniel.pavel/solaar/ubuntu trusty main'
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 06524FBA # Get key for solaar
 sudo add-apt-repository -y 'deb http://download.videolan.org/pub/debian/stable/ /'
 wget -O - http://download.videolan.org/pub/debian/videolan-apt.asc | sudo apt-key add -
 
@@ -66,8 +67,6 @@ sudo chown -R $(whoami) ~/.npm
 # Utilities
 sudo apt-get install -y \
         solaar btsync btsync-gui openvpn ssh
-
-
 
 # Applications
 sudo apt-get install -y \
