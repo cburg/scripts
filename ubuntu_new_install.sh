@@ -71,7 +71,7 @@ sudo apt-get install -y \
 # Applications
 sudo apt-get install -y \
         vlc picard soundconverter anki handbrake gimp audacity birdfont ardour \
-        inkscape synaptic
+        inkscape synaptic freecad openscad blender
 
 
 
