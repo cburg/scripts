@@ -9,7 +9,7 @@ wget -P ~/Downloads https://dl.google.com/linux/direct/google-chrome-stable_curr
 wget -P ~/Downloads http://repo.steampowered.com/steam/archive/precise/steam_latest.deb
 wget -P ~/Downloads http://c758482.r82.cf2.rackcdn.com/sublime-text_build-3083_amd64.deb
 wget -P ~/Downloads http://download.qt-project.org/official_releases/online_installers/qt-opensource-linux-x64-online.run
-wget -P ~/Downloads https://static.rust-lang.org/dist/rust-1.0.0-beta.3-x86_64-unknown-linux-gnu.tar.gz
+wget -P ~/Downloads https://static.rust-lang.org/dist/rust-1.4.0-x86_64-unknown-linux-gnu.tar.gz
 
 # Need to update the keys and repository list. When first installing
 # libappindicator1 there was a warning saying the package couldn't be authenticated
@@ -43,6 +43,15 @@ sudo add-apt-repository -y 'deb http://download.videolan.org/pub/debian/stable/ 
 wget -O - http://download.videolan.org/pub/debian/videolan-apt.asc | sudo apt-key add -
 
 
+# Add Syncthing (steps retrieved from apt.syncthing.net)
+# Add the release PGP keys:
+curl -s https://syncthing.net/release-key.txt | sudo apt-key add -
+
+# Add the "release" channel to your APT sources:
+echo "deb http://apt.syncthing.net/ syncthing release" | sudo tee /etc/apt/sources.list.d/syncthing.list
+
+
+
 # Update to the latest
 sudo apt-get update
 sudo apt-get upgrade -y
@@ -71,7 +80,7 @@ sudo apt-get install -y \
 # Applications
 sudo apt-get install -y \
         vlc picard soundconverter anki handbrake gimp audacity birdfont ardour \
-        inkscape synaptic freecad openscad blender
+        inkscape synaptic freecad openscad blender syncthing
 
 
 
