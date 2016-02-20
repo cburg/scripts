@@ -64,7 +64,8 @@ sudo apt-get install -y \
         lib32stdc++6 xutils-dev xfonts-utils gdb valgrind python python3 \
         doxygen cpp vim binutils coreutils make git exuberant-ctags \
         libncurses5-dev python-software-properties linux-headers-`uname -r` \
-        gcc-arm-none-eabi screen libgl1-mesa-dev
+        gcc-arm-none-eabi screen libgl1-mesa-dev dh-modaliases execstack 
+        debhelper dkms
 
 
 # Install Node.js
