@@ -32,11 +32,16 @@ sudo ~/Downloads/rust-1.6.0-x86_64-unknown-linux-gnu/install.sh
 
 
 # Add our repositories
-sudo add-apt-repository -y ppa:videolan/stable-daily
-sudo add-apt-repository -y ppa:terry.guo/gcc-arm-embedded
-sudo add-apt-repository -y ppa:tuxpoldo/btsync
-sudo add-apt-repository -y ppa:chris-lea/node.js
-sudo add-apt-repository -y ppa:ubuntuhandbook1/birdfont
+# The gcc-arm and node.js repo's aren't strictly needed as there are versions in the default repositories.
+# They are being left in in the event that we want to update to newer versions in the future.
+#sudo add-apt-repository -y 'deb http://ppa.launchpad.net/terry.guo/gcc-arm-embedded/ubuntu wily main'
+#sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys A3421AFB # Get key for gcc-arm-embedded
+sudo add-apt-repository -y 'deb http://ppa.launchpad.net/tuxpoldo/btsync/ubuntu vivid main'
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys D294A752 # Get key for btsync
+#sudo add-apt-repository -y 'deb http://ppa.launchpad.net/chris-lea/node.js/ubuntu utopic main'
+#sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys C7917B12 # Get key for node.js
+sudo add-apt-repository -y 'deb http://ppa.launchpad.net/ubuntuhandbook1/birdfont/ubuntu vivid main'
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 852541CB # Get key for birdfont 
 sudo add-apt-repository -y 'deb http://ppa.launchpad.net/daniel.pavel/solaar/ubuntu trusty main'
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 06524FBA # Get key for solaar
 sudo add-apt-repository -y 'deb http://download.videolan.org/pub/debian/stable/ /'
@@ -57,15 +62,15 @@ sudo apt-get update
 sudo apt-get upgrade -y
 
 # Development Stuff
-sudo apt-get install -y \
+sudo apt-get install -y --ignore-missing \
         gcc g++ pkg-config flex bison texinfo doxygen libxml-parser-perl \
         intltool dos2unix fakeroot yasm encfs autoconf automake libtool \
         libglib2.0-dev gperf libc6-dev-i386 lib32ncurses5-dev zlib1g:i386 \
         lib32stdc++6 xutils-dev xfonts-utils gdb valgrind python python3 \
         doxygen cpp vim binutils coreutils make git exuberant-ctags \
         libncurses5-dev python-software-properties linux-headers-`uname -r` \
-        gcc-arm-none-eabi screen libgl1-mesa-dev dh-modaliases execstack 
-        debhelper dkms
+        gcc-arm-none-eabi gdb-arm-none-eabi screen libgl1-mesa-dev \
+        dh-modaliases execstack debhelper dkms
 
 
 # Install Node.js
@@ -73,20 +78,24 @@ sudo apt-get install -y nodejs
 sudo chown -R $(whoami) ~/.npm
 
 
+# Japanese Stuff
+sudo apt-get install -y --ignore-missing \
+         anki anthy anthy-common gijten ibus-anthy
+
 
 # Utilities
-sudo apt-get install -y \
+sudo apt-get install -y --ignore-missing \
         solaar btsync btsync-gui openvpn ssh
 
 # Applications
-sudo apt-get install -y \
+sudo apt-get install -y --ignore-missing \
         vlc picard soundconverter anki handbrake gimp audacity birdfont ardour \
         inkscape synaptic freecad openscad blender syncthing
 
 
 
 # Multimedia libraries
-sudo apt-get install -y \
+sudo apt-get install -y --ignore-missing \
         gstreamer0.10-fluendo-mp3 gstreamer0.10-plugins-base \
         gstreamer0.10-plugins-good gstreamer0.10-plugins-bad \
         gstreamer0.10-plugins-ugly gstreamer1.0-fluendo-mp3 \
