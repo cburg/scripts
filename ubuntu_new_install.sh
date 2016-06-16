@@ -34,8 +34,7 @@ sudo ~/Downloads/rust-1.6.0-x86_64-unknown-linux-gnu/install.sh
 # Add our repositories
 # The gcc-arm and node.js repo's aren't strictly needed as there are versions in the default repositories.
 # They are being left in in the event that we want to update to newer versions in the future.
-#sudo add-apt-repository -y 'deb http://ppa.launchpad.net/terry.guo/gcc-arm-embedded/ubuntu wily main'
-#sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys A3421AFB # Get key for gcc-arm-embedded
+sudo add-apt-repository ppa:team-gcc-arm-embedded/ppa
 sudo add-apt-repository -y 'deb http://ppa.launchpad.net/tuxpoldo/btsync/ubuntu vivid main'
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys D294A752 # Get key for btsync
 #sudo add-apt-repository -y 'deb http://ppa.launchpad.net/chris-lea/node.js/ubuntu utopic main'
@@ -69,7 +68,7 @@ sudo apt-get install -y --ignore-missing \
         lib32stdc++6 xutils-dev xfonts-utils gdb valgrind python python3 \
         doxygen cpp vim binutils coreutils make git exuberant-ctags \
         libncurses5-dev python-software-properties linux-headers-`uname -r` \
-        gcc-arm-none-eabi gdb-arm-none-eabi screen libgl1-mesa-dev \
+        gcc-arm-embedded screen libgl1-mesa-dev \
         dh-modaliases execstack debhelper dkms
 
 
