@@ -95,9 +95,8 @@ sudo apt-get install -y --ignore-missing \
 
 # Multimedia libraries
 sudo apt-get install -y --ignore-missing \
-        gstreamer0.10-fluendo-mp3 gstreamer0.10-plugins-base \
-        gstreamer0.10-plugins-good gstreamer0.10-plugins-bad \
-        gstreamer0.10-plugins-ugly gstreamer1.0-fluendo-mp3 \
+        gstreamer0.10-plugins-base gstreamer0.10-plugins-good \
+        gstreamer1.0-fluendo-mp3 \
         gstreamer1.0-plugins-base gstreamer1.0-plugins-good \
         gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly libdvdcss2
 
