@@ -69,6 +69,7 @@ sudo apt-get install -y --ignore-missing \
         doxygen cpp vim binutils coreutils make git exuberant-ctags \
         libncurses5-dev python-software-properties linux-headers-`uname -r` \
         gcc-arm-embedded screen libgl1-mesa-dev \
+        python3-numpy python-numpy python3-matplotlib python-matplotlib \
         dh-modaliases execstack debhelper dkms
 
 
