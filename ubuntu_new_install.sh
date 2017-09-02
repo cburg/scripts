@@ -43,6 +43,7 @@ wget -O - http://download.videolan.org/pub/debian/videolan-apt.asc | sudo apt-ke
 
 # Add Syncthing (steps retrieved from apt.syncthing.net)
 # Add the release PGP keys:
+sudo apt-get install curl
 curl -s https://syncthing.net/release-key.txt | sudo apt-key add -
 
 # Add the "release" channel to your APT sources:
@@ -79,12 +80,12 @@ sudo apt-get install -y --ignore-missing \
 
 # Utilities
 sudo apt-get install -y --ignore-missing \
-        solaar btsync btsync-gui openvpn ssh
+        solaar syncthing openvpn ssh
 
 # Applications
 sudo apt-get install -y --ignore-missing \
         vlc picard soundconverter anki handbrake gimp audacity birdfont ardour \
-        inkscape synaptic freecad openscad blender syncthing
+        inkscape synaptic freecad openscad blender 
 
 
 
