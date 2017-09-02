@@ -84,7 +84,7 @@ sudo apt-get install -y --ignore-missing \
 
 # Applications
 sudo apt-get install -y --ignore-missing \
-        vlc picard soundconverter anki handbrake gimp audacity birdfont ardour \
+        vlc picard soundconverter anki handbrake gimp audacity ardour \
         inkscape synaptic freecad openscad blender 
 
 
