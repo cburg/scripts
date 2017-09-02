@@ -75,7 +75,7 @@ sudo chown -R $(whoami) ~/.npm
 
 # Japanese Stuff
 sudo apt-get install -y --ignore-missing \
-         anki anthy anthy-common gijten ibus-anthy
+         anthy anthy-common gijten ibus-anthy
 
 
 # Utilities
@@ -84,7 +84,7 @@ sudo apt-get install -y --ignore-missing \
 
 # Applications
 sudo apt-get install -y --ignore-missing \
-        vlc picard soundconverter anki handbrake gimp audacity ardour \
+        vlc picard soundconverter handbrake gimp audacity ardour \
         inkscape synaptic freecad openscad blender 
 
 
