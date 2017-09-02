@@ -35,8 +35,8 @@ sudo ~/Downloads/qt-unified-linux-x64-online.run & # Allow installation to be do
 #sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys C7917B12 # Get key for node.js
 #sudo add-apt-repository -y 'deb http://ppa.launchpad.net/ubuntuhandbook1/birdfont/ubuntu vivid main'
 #sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 852541CB # Get key for birdfont 
-sudo add-apt-repository -y 'deb http://ppa.launchpad.net/daniel.pavel/solaar/ubuntu trusty main'
-sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 06524FBA # Get key for solaar
+#sudo add-apt-repository -y 'deb http://ppa.launchpad.net/daniel.pavel/solaar/ubuntu trusty main'
+#sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 06524FBA # Get key for solaar
 sudo add-apt-repository -y 'deb http://download.videolan.org/pub/debian/stable/ /'
 wget -O - http://download.videolan.org/pub/debian/videolan-apt.asc | sudo apt-key add -
 
