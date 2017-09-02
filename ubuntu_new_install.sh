@@ -63,7 +63,7 @@ sudo apt-get install -y --ignore-missing \
         lib32stdc++6 xutils-dev xfonts-utils gdb valgrind python python3 \
         doxygen cpp vim binutils coreutils make git exuberant-ctags \
         libncurses5-dev python-software-properties linux-headers-`uname -r` \
-        gcc-arm-embedded screen libgl1-mesa-dev \
+        screen libgl1-mesa-dev \
         python3-numpy python-numpy python3-matplotlib python-matplotlib \
         dh-modaliases execstack debhelper dkms
 
