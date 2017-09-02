@@ -7,9 +7,7 @@
 # Download Deb Packages
 wget -P ~/Downloads https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 wget -P ~/Downloads http://repo.steampowered.com/steam/archive/precise/steam_latest.deb
-wget -P ~/Downloads http://download.sublimetext.com/sublime-text_build-3103_amd64.deb
 wget -P ~/Downloads http://download.qt.io/official_releases/online_installers/qt-unified-linux-x64-online.run
-wget -P ~/Downloads https://static.rust-lang.org/dist/rust-1.6.0-x86_64-unknown-linux-gnu.tar.gz
 
 # Need to update the keys and repository list. When first installing
 # libappindicator1 there was a warning saying the package couldn't be authenticated
@@ -21,26 +19,22 @@ sudo apt-get install -y libgconf2-4 libnss3-1d libxss1 libappindicator1 libindic
 
 # Install Chrome, Sublime, Qt Libraries, and Rust
 sudo dpkg -i ~/Downloads/google-chrome-stable_current_amd64.deb
-sudo dpkg -i ~/Downloads/sublime-text_build-3103_amd64.deb
+#sudo dpkg -i ~/Downloads/sublime-text_build-3103_amd64.deb
 
 chmod +x ~/Downloads/qt-unified-linux-x64-online.run
 sudo ~/Downloads/qt-unified-linux-x64-online.run & # Allow installation to be done in 
                                                       # background.
                                             
-tar -xzvf ~/Downloads/rust-1.6.0-x86_64-unknown-linux-gnu.tar.gz -C ~/Downloads
-sudo ~/Downloads/rust-1.6.0-x86_64-unknown-linux-gnu/install.sh
-
-
 # Add our repositories
 # The gcc-arm and node.js repo's aren't strictly needed as there are versions in the default repositories.
 # They are being left in in the event that we want to update to newer versions in the future.
-sudo add-apt-repository ppa:team-gcc-arm-embedded/ppa
-sudo add-apt-repository -y 'deb http://ppa.launchpad.net/tuxpoldo/btsync/ubuntu vivid main'
-sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys D294A752 # Get key for btsync
+#sudo add-apt-repository ppa:team-gcc-arm-embedded/ppa
+#sudo add-apt-repository -y 'deb http://ppa.launchpad.net/tuxpoldo/btsync/ubuntu vivid main'
+#sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys D294A752 # Get key for btsync
 #sudo add-apt-repository -y 'deb http://ppa.launchpad.net/chris-lea/node.js/ubuntu utopic main'
 #sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys C7917B12 # Get key for node.js
-sudo add-apt-repository -y 'deb http://ppa.launchpad.net/ubuntuhandbook1/birdfont/ubuntu vivid main'
-sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 852541CB # Get key for birdfont 
+#sudo add-apt-repository -y 'deb http://ppa.launchpad.net/ubuntuhandbook1/birdfont/ubuntu vivid main'
+#sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 852541CB # Get key for birdfont 
 sudo add-apt-repository -y 'deb http://ppa.launchpad.net/daniel.pavel/solaar/ubuntu trusty main'
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 06524FBA # Get key for solaar
 sudo add-apt-repository -y 'deb http://download.videolan.org/pub/debian/stable/ /'
