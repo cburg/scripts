@@ -1,0 +1,15 @@
+{
+    "telemetry.enableTelemetry": false,
+    "telemetry.enableCrashReporter": false,
+    "editor.rulers": [
+        80, 100, 120
+    ],
+
+    "files.trimTrailingWhitespace": false,
+    "editor.renderWhitespace": "all",
+
+    "window.title": "${dirty}${rootName}${separator}${activeEditorShort}",
+    "window.zoomLevel": -1,
+    "python.linting.enabled": false,
+    "explorer.confirmDragAndDrop": false
+}

@@ -1,0 +1,61 @@
+
+! ------------------- Hi-DPI Support -------------------
+Xft.dpi: 160
+
+! ------------------- URxvt Settings -------------------
+URxvt.scrollBar:        false
+URxvt.font:             xft:DejaVu Sans Mono:size=12
+URxvt.xftAutoHint:      true
+URxvt.letterSpace:      -2
+
+! Steal Gnome Terminal icon in Ubuntu
+
+URxvt.iconFile:         /usr/share/app-install/icons/terminal-tango.svg
+
+URxvt.cursorBlink:      1
+URxvt.perl-ext-common:  default,matcher
+URxvt.url-launcher:     /usr/bin/firefox
+URxvt.matcher.button:   1
+
+
+
+! ------------------- Special Colors -------------------
+
+! Very Dark Blue (Almost black)
+*background: #09111a
+! Pale Yellow
+*foreground: #fffccc
+
+! ------------------- Standard Colors ------------------
+! Black / Bright Black
+*color0:  #131313
+*color8:  #2e2e2e
+      
+! Red / Bright Red
+*color1:  #c14a6a
+*color9:  #cd6d87
+
+! Green / Green Bright
+*color2:  #6ac14a
+*color10: #87cd6d
+
+! Yellow / Yellow Bright
+*color3:  #c1a14a
+*color11: #cdb46d
+
+! Blue / Blue Bright
+*color4:  #4a6ac1
+*color12: #6d87cd
+
+! Magenta / Magenta Bright
+*color5:  #a14ac1
+*color13: #b46dcd
+
+! Cyan / Cyan Bright
+*color6:  #4ac1a1
+*color14: #6dcdb4
+
+! White / White Bright
+*color7:  #d3d3d3
+*color15: #f1f1f1
+

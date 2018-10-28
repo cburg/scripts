@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<gconf>
+	<entry name="palette" mtime="1535938432" type="string">
+		<stringvalue>#131313131313:#c1c14a4a6a6a:#6a6ac1c14a4a:#c1c1a1a14a4a:#4a4a6a6ac1c1:#a1a14a4ac1c1:#4a4ac1c1a1a1:#d3d3d3d3d3d3:#2e2e2e2e2e2e:#cdcd6d6d8787:#8787cdcd6d6d:#cdcdb4b46d6d:#6d6d8787cdcd:#b4b46d6dcdcd:#6d6dcdcdb4b4:#f1f1f1f1f1f1</stringvalue>
+	</entry>
+	<entry name="foreground_color" mtime="1535938432" type="string">
+		<stringvalue>#fffffcfccccc</stringvalue>
+	</entry>
+	<entry name="background_color" mtime="1535938432" type="string">
+		<stringvalue>#090911111a1a</stringvalue>
+	</entry>
+	<entry name="use_theme_colors" mtime="1535938432" type="bool" value="false"/>
+	<entry name="use_theme_background" mtime="1535938432" type="bool" value="false"/>
+</gconf>
