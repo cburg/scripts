@@ -1,0 +1,11 @@
+
+#BEGIN_CUSTOM
+# PS1 Prompt
+PS1='\[\e[1;33m\]┌─[\[\e[0;36m\]\u@\h \@\[\e[1;33m\]]──[\[\e[0;36m\]\w\[\e[1;33m\]]\n└─■ \[\e[0m\]'
+
+# TAB -- complete forward
+bind TAB:menu-complete
+
+# Shift+TAB -- complete backward
+bind '"\e[Z"':menu-complete-backward
+#END_CUSTOM
