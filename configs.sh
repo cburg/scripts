@@ -47,12 +47,13 @@ function backup () {
 
 function restore () {
     echo "Restoring configs..."
+    USER=`logname`
     for i in ${TARGET_CONFIGS[*]}; do
         FROM=$BACKUPDIR/$i
         TO=$RESTOREDIR/$i
         NEWDIR="$( dirname "$TO" )"
-        mkdir -p $NEWDIR
-        cp -r $FROM $TO
+        sudo -u $USER mkdir -p $NEWDIR
+        sudo -u $USER cp -r $FROM $TO
     done
     echo "Done!"
 }
