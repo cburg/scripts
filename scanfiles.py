@@ -16,9 +16,12 @@ cur_scan_counter = 0
 
 
 def get_hash(full_fpath):
+    cur_hash = hashlib.md5()
+    block_size = 128*cur_hash.block_size
     with open(full_fpath, mode="rb") as file_contents:
-        cur_hash = hashlib.md5(file_contents.read()).hexdigest()
-        return cur_hash
+        for block in iter(lambda: file_contents.read(block_size), b''):
+            cur_hash.update(block)
+        return cur_hash.hexdigest()
 
     return ""
 
