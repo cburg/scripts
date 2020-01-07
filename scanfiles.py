@@ -7,10 +7,12 @@ from pathlib import Path
 
 
 _FILE_SCAN_NAME = ".filehash.json"
+_DUPLICATE_NAME = ".duplicatefiles.json"
 _DEFAULT_SCAN_PATH = str(Path.home())
 
 scan_results_by_file = {}
 scan_results_by_md5 = {}
+duplicate_files_by_md5 = {}
 
 cur_scan_counter = 0
 
@@ -100,8 +102,7 @@ def save_results(scan_path):
 
     with open(scan_path, mode="w") as scan_f:
         json.dump(scan_results_by_file, scan_f, indent=4)
-    
-    pass
+
 
 
 def scan_dirs(dirs):
@@ -118,12 +119,42 @@ def scan_dirs(dirs):
     print()
 
 
+def save_duplicates():
+    for k,v in scan_results_by_md5.items():
+        if len(v) > 1:
+            duplicate_files_by_md5[k] = v
+
+
+    dup_file_path = os.path.join(args.output_folder, _DUPLICATE_NAME)
+    with open(dup_file_path, mode="w") as dup_f:
+        json.dump(duplicate_files_by_md5, dup_f, indent=4)
+
+
+def print_stats():
+    print("Number of files duplicated: {}".format(len(duplicate_files_by_md5)))
+
+    total_size_b = 0
+    total_size_savings_b = 0
+    for k,v in duplicate_files_by_md5.items():
+        f_count = len(v)
+        f_size = scan_results_by_file[v[0]][1]
+        total_size_b += f_count * f_size
+        total_size_savings_b += (f_count-1) * f_size
+
+    print("Total Space Savings: {} GiB".format(total_size_savings_b / (1024**3)))
+
+
+
 def run_scan(args):
     scan_file_path = os.path.join(args.output_folder, _FILE_SCAN_NAME)
     load_results(scan_file_path)
     remove_missing_files()
     scan_dirs(args.input_directories)
     save_results(scan_file_path)
+    save_duplicates()
+    print_stats()
+
+
 
 
 if __name__ == "__main__":
@@ -140,6 +171,12 @@ if __name__ == "__main__":
         default=_DEFAULT_SCAN_PATH,
         dest="output_folder",
         help="Output file location"
+    )
+    parser.add_argument(
+        "--find-duplicates", "-d",
+        dest="find_duplicates",
+        action="store_true",
+        help="Whether to scan for duplicates"
     )
 
     args = parser.parse_args()
