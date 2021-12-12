@@ -149,8 +149,8 @@ function install_packages () {
     install_prereqs
 
     # google-chrome
-    sudo dpkg -i ~/Downloads/google-chrome-stable_current_amd64.deb
-    sudo apt-get -f install
+    #sudo dpkg -i ~/Downloads/google-chrome-stable_current_amd64.deb
+    #sudo apt-get -f install
 
     # install steam
     sudo dpkg -i ~/Downloads/steam.deb
@@ -179,10 +179,28 @@ function install_packages () {
     done
 }
 
+function setup_vim() {
+    mkdir -p ~/.vim/bundle ~/.vim/autoload
+    curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+
+    pushd ~/.vim/bundle
+    git clone https://github.com/tpope/vim-fugitive
+    git clone https://github.com/scrooloose/nerdtree
+    git clone https://github.com/tpope/vim-commentary
+    git clone https://github.com/junegunn/fzf
+
+    git clone https://github.com/fatih/vim-go
+
+    git clone https://github.com/altercation/vim-colors-solarized
+    git clone https://github.com/junegunn/seoul256.vim
+    git clone https://github.com/mhartington/oceanic-next
+    popd
+}
+
 function download_packages () {
     echo "download_packages"
 
-    wget -P ~/Downloads https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+    #wget -P ~/Downloads https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
     wget -P ~/Downloads https://steamcdn-a.akamaihd.net/client/installer/steam.deb
 
     # For now, we'll use Qt libraries in the Ubuntu repositories
@@ -208,12 +226,18 @@ function full () {
     update_configs
 }
 
-# Parameters
-#   -f|--full
-#   -i|--install-packages
-#   -r|--update-repos
-#   -d|--download-packages
-#   -c|--update-configs
+function print_help() {
+    echo ' Parameters'
+    echo '   -f|--full'
+    echo '   -i|--install-packages'
+    echo '   -r|--update-repos'
+    echo '   -d|--download-packages'
+    echo '   -c|--update-configs'
+    echo '   -v|--setup-vim'
+
+}
+
+INVALID_PARAMS=true
 
 while [[ $# -gt 0 ]]
 do
@@ -221,27 +245,38 @@ key="$1"
 
 case $key in
     -f|--full)
+    INVALID_PARAMS=false
     full
     break # If full, we don't want to re-run everything
     ;;
 
     -i|--install-packages)
+    INVALID_PARAMS=false
     install_packages
     shift # past argument
     ;;
 
     -r|--update-repos)
+    INVALID_PARAMS=false
     update_repos
     shift # past argument
     ;;
 
     -d|--download-packages)
+    INVALID_PARAMS=false
     download_packages
     shift # past argument
     ;;
 
     -c|--update-configs)
+    INVALID_PARAMS=false
     update_configs
+    shift # past argument
+    ;;
+    
+    -v|--setup-vim)
+    INVALID_PARAMS=false
+    setup_vim
     shift # past argument
     ;;
 
@@ -250,3 +285,7 @@ case $key in
     ;;
 esac
 done
+
+if ( $INVALID_PARAMS ); then
+    print_help
+fi
